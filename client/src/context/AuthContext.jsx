@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
-const API_URL = 'https://task-management-uujy.onrender.com/api/auth';
+const API_URLL = 'https://task-management-uujy.onrender.com/api/auth';
 
 const authReducer = (state, action) => {
     switch (action.type) {
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const res = await axios.post(`${API_URL}/login`, { email, password });
+            const res = await axios.post(`${API_URLL}/login`, { email, password });
             dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
         } catch (err) {
             console.error('Login error:', err);
@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (username, email, password) => {
         try {
-            const res = await axios.post(`${API_URL}/register`, { username, email, password });
+            const res = await axios.post(`${API_URLL}/register`, { username, email, password });
             dispatch({ type: 'REGISTER_SUCCESS', payload: res.data });
         } catch (err) {
             console.error('Register error:', err);
