@@ -1,0 +1,133 @@
+:root {
+  --bg-color: #000000;
+  --card-bg: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --primary: #ffffff;
+  --primary-hover: #d4d4d4;
+  --danger: #ffffff;
+  --success: #ffffff;
+  --warning: #ffffff;
+  --radius: 0px;
+  /* Sharper edges fit B&W better usually, but sticking to user request of just color */
+  --shadow: 0 0 0 1px #333;
+  /* Flat border look instead of shadow */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-top: 0;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-color);
+  border: 1px solid #334155;
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: black;
+  border: 1px solid white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.btn-danger:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid #334155;
+  transition: transform 0.2s;
+}
+
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: #475569;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem !important;
+    /* Override inline styles if necessary, but better to handle via class. Since inline styles are used in App.jsx, we might need to change App.jsx too. */
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+  }
+}
