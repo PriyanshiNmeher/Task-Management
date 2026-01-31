@@ -27,7 +27,7 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ msg: 'User with this username already exists' });
         }
 
-        user = new User({
+        const user = new User({
             username,
             email,
             password
@@ -92,7 +92,7 @@ router.post('/login', async (req, res) => {
 
         jwt.sign(
             payload,
-            process.env.JWT_SECRET || 'secret',
+            process.env.JWT_SECRET ,
             { expiresIn: 360000 },
             (err, token) => {
                 if (err) throw err;

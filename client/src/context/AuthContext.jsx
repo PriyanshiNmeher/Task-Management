@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
+const API_URLL = 'https://task-management-uujy.onrender.com/api/auth';
+
 const authReducer = (state, action) => {
     switch (action.type) {
         case 'LOGIN_SUCCESS':
@@ -52,21 +54,21 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+            const res = await axios.post(`${API_URLL}/login`, { email, password });
             dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
         } catch (err) {
-            console.error(err.response.data);
-            throw err.response.data.msg || 'Login failed';
+            console.error('Login error:', err);
+            throw err.response?.data?.msg || 'Login failed';
         }
     };
 
     const register = async (username, email, password) => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
+            const res = await axios.post(`${API_URLL}/register`, { username, email, password });
             dispatch({ type: 'REGISTER_SUCCESS', payload: res.data });
         } catch (err) {
-            console.error(err.response.data);
-            throw err.response.data.msg || 'Registration failed';
+            console.error('Register error:', err);
+            throw err.response?.data?.msg || 'Registration failed';
         }
     };
 
