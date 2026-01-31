@@ -8,6 +8,8 @@ import AuthContext from './context/AuthContext';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
+export const serverUrl="https://task-management-uujy.onrender.com/"
+
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, loading } = useContext(AuthContext);
   if (loading) return <div>Loading...</div>;
