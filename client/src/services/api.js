@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://task-management-uujy.onrender.com/';
+const API_URL = 'https://task-management-uujy.onrender.com/api/tasks';
 
 const getAuthHeader = () => {
     const token = localStorage.getItem('token');
